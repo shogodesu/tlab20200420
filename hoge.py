@@ -1,2 +1,2 @@
 print("hoge")
-print("ほげ")
+print("ふが")
