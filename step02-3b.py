@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         n = np.random.randint(N-1)
 
-        z = 1.0 / (1.0 + np.exp(-W * X))
+        z = 1.0 / (1.0 + np.exp(-W * X[n,:]))
 
         h = -t[n] * np.log(z) - (1 - t[n]) * np.log(1 - z)
  
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
             h = -t * np.log(Z) - (1 - t) * np.log(1 - Z)
 
-            L = (0 <= a * X[:,0] + b * X[:,1] + c)
+            L = (0 <= W * X)
 
             cnt1 = np.count_nonzero(L == lab)
 
