@@ -17,11 +17,7 @@ if __name__ == '__main__':
     W = []
     m = int(input())
 
-    for k in range(m):
-        W[k] = 0.02 * np.random.rand(K) - 0.01
-    #a   = 0.02 * np.random.rand() - 0.01
-    #b   = 0.02 * np.random.rand() - 0.01
-    #c   = 0.02 * np.random.rand() - 0.01
+    W = 0.02 * np.random.rand(K) - 0.01
 
     N = X.shape[0]
 
@@ -32,24 +28,18 @@ if __name__ == '__main__':
 
         n = np.random.randint(N-1)
 
-        #Xn = X[n][0]
-        #Yn = X[n][1]
-
         z = 1.0 / (1.0 + np.exp(-W * X))
 
         h = -t[n] * np.log(z) - (1 - t[n]) * np.log(1 - z)
  
         W = (z - t[n]) * X
-        #a = a - M * Xn * (z - t[n])
-        #b = b - M * Yn * (z - t[n])
-        #c = c - M * (z - t[n])
 
         if  i % 2000 == 0:
 
             H = 0.0
             cnt1 = 0
 
-            Z = 1 / (1 + np.exp(-a * X[:,0] -b * X[:,1] -c))
+            Z = 1 / (1 + np.exp(-W * X))
 
             Z = Z.reshape(N)
 
