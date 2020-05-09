@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
         n = np.random.randint(N-1)
 
-        z = 1.0 / (1.0 + np.exp(-W * X[n,:]))
+        z = 1.0 / (1.0 + np.exp(-(np.dot(W , X[n,:]))))
 
         h = -t[n] * np.log(z) - (1 - t[n]) * np.log(1 - z)
  
@@ -39,7 +39,7 @@ if __name__ == '__main__':
             H = 0.0
             cnt1 = 0
 
-            Z = 1 / (1 + np.exp(-W * X))
+            Z = 1 / (1 + np.exp(-(np.dot(W,Z[n,:]))))
 
             Z = Z.reshape(N)
 
